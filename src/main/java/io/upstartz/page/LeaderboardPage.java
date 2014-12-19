@@ -17,12 +17,25 @@ public class LeaderboardPage extends WebPage {
     @SpringBean
     private StartupCompanyDAO dao;
 
+    public enum Direction {
+        UP,
+        DOWN
+    }
+
     public LeaderboardPage(final PageParameters pp) {
         super(pp);
+        final Direction direction = parseDirection(pp.get("dir"));
+
+        add(new Label("title", getTitle(direction)));
+
+        add(new BookmarkablePageLink<LeaderboardPage>("leaderboardUpvoteLink", LeaderboardPage.class));
+        final PageParameters leaderboardDownvoteLinkParameters = new PageParameters();
+        leaderboardDownvoteLinkParameters.add("dir", Direction.DOWN);
+        add(new BookmarkablePageLink<LeaderboardPage>("leaderboardDownvoteLink", LeaderboardPage.class, leaderboardDownvoteLinkParameters));
 
         add(new BookmarkablePageLink<VoteForStartupPage>("voteLink", VoteForStartupPage.class));
 
-        final List<StartupCompany> scList = list(pp.get("dir"), 10);
+        final List<StartupCompany> scList = list(direction, 10);
         add(new ListView<StartupCompany>("list", scList) {
             @Override
             protected void populateItem(final ListItem<StartupCompany> item) {
@@ -34,10 +47,29 @@ public class LeaderboardPage extends WebPage {
         });
     }
 
-    private List<StartupCompany> list(final StringValue dir, final int limit) {
-        if (dir.isEmpty() || !"down".equals(dir.toString())) {
-            return dao.listTopUpvotes(limit);
+    private String getTitle(final Direction direction) {
+        switch (direction) {
+            case DOWN:
+                return "Ice Cold Upstartz";
+            default:
+                return "Upstartz on Fire!";
         }
-        return dao.listTopDownvotes(limit);
+    }
+
+    private Direction parseDirection(final StringValue arg) {
+        try {
+            return Direction.valueOf(arg.toString());
+        } catch (IllegalArgumentException e) {
+            return Direction.UP;
+        }
+    }
+
+    private List<StartupCompany> list(final Direction dir, final int limit) {
+        switch (dir) {
+            case DOWN:
+                return dao.listTopDownvotes(limit);
+            default:
+                return dao.listTopUpvotes(limit);
+        }
     }
 }
