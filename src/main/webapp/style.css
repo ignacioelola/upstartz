@@ -168,9 +168,11 @@ body {
     width: 40%;
   }
   .companylist__details {
-    text-align: left;
     clear: both;
     margin-top: 20px;
     width: 100%;
+  }
+  .companylist__details p {
+    text-align: left;
   }
 }
