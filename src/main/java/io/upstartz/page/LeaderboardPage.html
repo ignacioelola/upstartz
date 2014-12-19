@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>Upstartz - Shaping the future, one upstart at a time</title>
+		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold' rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet" />
+	</head>
+	<body>
+		<h1>Leaderboard</h1>
+		<table>
+			<thead>
+				<th>
+					<td>Upvotes</td>
+					<td>Downvotes</td>
+					<td>Startup</td>
+				</th>
+			</thead>
+			<tbody>
+				<tr wicket:id="list">
+					<td wicket:id="upvotes">0</td>
+					<td wicket:id="downvotes">0</td>
+					<td wicket:id="name">Company name</td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="#" wicket:id="voteLink">Vote for startups</a>
+	</body>
+</html>
