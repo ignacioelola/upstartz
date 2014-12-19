@@ -5,6 +5,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -16,15 +17,19 @@ public class StartupCompanyDAO {
 
     public List<StartupCompany> listTopUpvotes(final int limit) {
         final Criteria criteria = sessionFactory.getCurrentSession().createCriteria(StartupCompany.class);
+        criteria.add(Restrictions.gt("upvotes", 0));
         criteria.addOrder(Order.desc("upvotes"));
         criteria.setFetchSize(limit);
+        criteria.setMaxResults(limit);
         return criteria.list();
     }
 
     public List<StartupCompany> listTopDownvotes(final int limit) {
         final Criteria criteria = sessionFactory.getCurrentSession().createCriteria(StartupCompany.class);
+        criteria.add(Restrictions.gt("downvotes", 0));
         criteria.addOrder(Order.desc("downvotes"));
         criteria.setFetchSize(limit);
+        criteria.setMaxResults(limit);
         return criteria.list();
     }
 

@@ -5,7 +5,6 @@ import io.upstartz.dao.StartupCompanyDAO;
 import io.upstartz.model.StartupCompany;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
@@ -23,7 +22,6 @@ public class LeaderboardPage extends WebPage {
         final Direction selectedDirection = parseDirection(pp.get("dir"));
 
         add(new HeaderPanel("header", selectedDirection));
-        add(new BookmarkablePageLink<VoteForStartupPage>("voteLink", VoteForStartupPage.class));
 
         final List<StartupCompany> scList = list(selectedDirection, 10);
         add(new ListView<StartupCompany>("list", scList) {
