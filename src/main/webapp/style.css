@@ -9,6 +9,10 @@ body {
   counter-reset: companycounter;
 }
 
+a {
+  text-decoration: none;
+}
+
 .col {
   width: 80%;
   max-width: 920px;
@@ -133,17 +137,34 @@ body {
 .companylist__details__name {
   font-size: 20px;
   margin-right: 10px;
+  color: #000;
 }
 
 .arrow-up:before {
+  font-weight: 700;
   color: #0f0;
   content: ' \2191';
 }
 .arrow-down:before {
+  font-weight: 700;
   color: #f00;
   content: ' \2193';
 }
 
+.DOWN,
+.UP {
+  padding-left: 30px;
+}
+
+
+.DOWN {
+  background: transparent url('img/ice.png') no-repeat 0 50%;
+  background-size: 25px 25px;
+}
+.UP {
+  background: transparent url('img/fire.png') no-repeat 0 50%;
+  background-size: 25px 25px;
+}
 
 @media all and (max-width: 780px) {
   .media__left,
@@ -152,6 +173,9 @@ body {
   }
 }
 @media all and (max-width: 680px) {
+  .header__nav a {
+    margin-left: 20px;
+  }
   .companylist {
     padding: 0;
   }
