@@ -176,3 +176,14 @@ body {
     text-align: left;
   }
 }
+@media all and (max-width: 520px) {
+  .col {
+    width: 90%;
+  }
+  .header {
+    line-height: 50px;
+  }
+  .company {
+    padding-top: 25px;
+  }
+}
