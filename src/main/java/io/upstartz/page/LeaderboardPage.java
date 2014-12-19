@@ -5,6 +5,7 @@ import io.upstartz.dao.StartupCompanyDAO;
 import io.upstartz.model.StartupCompany;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
@@ -28,9 +29,11 @@ public class LeaderboardPage extends WebPage {
             @Override
             protected void populateItem(final ListItem<StartupCompany> item) {
                 final StartupCompany sc = item.getModelObject();
+                final ExternalLink link = new ExternalLink("link", sc.getCompanyUrl());
+                item.add(link);
+                link.add(new Label("name", sc.getName()));
                 item.add(new Label("upvotes", sc.getUpvotes()));
                 item.add(new Label("downvotes", sc.getDownvotes()));
-                item.add(new Label("name", sc.getName()));
                 item.add(new StaticImage("logo", sc.getLogoUrl()));
                 item.add(new Label("description", sc.getDescription()));
             }
