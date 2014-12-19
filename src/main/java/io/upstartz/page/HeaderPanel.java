@@ -20,7 +20,7 @@ public class HeaderPanel extends Panel {
             protected void populateItem(final ListItem<Direction> item) {
                 final PageParameters parameters = new PageParameters();
                 final Direction direction = item.getModelObject();
-                parameters.add("dir", direction);
+                parameters.add("dir", direction.name().toLowerCase());
                 final BookmarkablePageLink<LeaderboardPage> link =
                         new BookmarkablePageLink<LeaderboardPage>(
                                 "link",

@@ -42,15 +42,15 @@ public class LeaderboardPage extends WebPage {
 
     private Direction parseDirection(final StringValue arg) {
         try {
-            return Direction.valueOf(arg.toString());
+            return Direction.valueOf(arg.toString().toUpperCase());
         } catch (IllegalArgumentException e) {
-            return Direction.UP;
+            return Direction.ON_FIRE;
         }
     }
 
     private List<StartupCompany> list(final Direction dir, final int limit) {
         switch (dir) {
-            case DOWN:
+            case ICE_COLD:
                 return dao.listTopDownvotes(limit);
             default:
                 return dao.listTopUpvotes(limit);

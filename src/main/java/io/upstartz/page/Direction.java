@@ -1,6 +1,6 @@
 package io.upstartz.page;
 
 public enum Direction {
-    UP,
-    DOWN
+    ON_FIRE,
+    ICE_COLD
 }
