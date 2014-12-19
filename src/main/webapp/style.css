@@ -151,17 +151,17 @@ a {
   content: ' \2193';
 }
 
-.DOWN,
-.UP {
+.ICE_COLD,
+.ON_FIRE {
   padding-left: 30px;
 }
 
 
-.DOWN {
+.ICE_COLD {
   background: transparent url('img/ice.png') no-repeat 0 50%;
   background-size: 25px 25px;
 }
-.UP {
+.ON_FIRE {
   background: transparent url('img/fire.png') no-repeat 0 50%;
   background-size: 25px 25px;
 }
