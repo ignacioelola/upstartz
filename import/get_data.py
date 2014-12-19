@@ -107,7 +107,7 @@ def get_link(link0):
 
 
 def post_data(data_row):
-    r = requests.post("http://localhost:8080/add", params=data_row)
+    r = requests.post("http://www.upstartz.io/add", params=data_row)
 
     print r.content, r.status_code
 
