@@ -62,9 +62,6 @@ a {
 .header__nav a:hover {
   text-decoration: underline;
 }
-.header__nav .selected {
-  font-weight: 700;
-}
 
 .footer {
   margin-top: 100px;
