@@ -124,22 +124,53 @@ body {
   width: 20%;
   margin: 0 5%;
   float: left;
-  box-shadow: 2px 2px 5px #ccc;
+  box-shadow: 5px 5px 10px #bbb;
 }
 .companylist__details {
   width: 70%;
   float: left;
 }
-.companylist__details__votes {
-
+.companylist__details__name {
+  font-size: 20px;
+  margin-right: 10px;
 }
-.companylist__details__votes {
 
+.arrow-up:before {
+  color: #0f0;
+  content: ' \2191';
 }
+.arrow-down:before {
+  color: #f00;
+  content: ' \2193';
+}
+
 
 @media all and (max-width: 780px) {
   .media__left,
   .media__right {
+    width: 100%;
+  }
+}
+@media all and (max-width: 680px) {
+  .companylist {
+    padding: 0;
+  }
+  .companylist li {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  .companylist li:before {
+    margin: 0 -82px 0 0;
+  }
+  .companylist__img {
+    float: none;
+    display: inline-block;
+    width: 40%;
+  }
+  .companylist__details {
+    text-align: left;
+    clear: both;
+    margin-top: 20px;
     width: 100%;
   }
 }
