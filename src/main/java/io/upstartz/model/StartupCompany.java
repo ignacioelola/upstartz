@@ -8,6 +8,8 @@ import java.io.Serializable;
 
 @Entity
 public class StartupCompany implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue
     @Column(name = "id")
@@ -21,6 +23,12 @@ public class StartupCompany implements Serializable {
 
     @Column(length = 200, nullable = false)
     private String name;
+
+    @Column(length = 1000, nullable = false)
+    private String companyUrl;
+
+    @Column(length = 200, nullable = false)
+    private String location;
 
     @Column(length = 1000, nullable = false)
     private String logoUrl;
@@ -37,10 +45,12 @@ public class StartupCompany implements Serializable {
     public StartupCompany() {
     }
 
-    public StartupCompany(String source, String sourceUrl, String name, String logoUrl, String description) {
+    public StartupCompany(String source, String sourceUrl, String name, String companyUrl, String location, String logoUrl, String description) {
         this.source = source;
         this.sourceUrl = sourceUrl;
         this.name = name;
+        this.companyUrl = companyUrl;
+        this.location = location;
         this.logoUrl = logoUrl;
         this.description = description;
     }

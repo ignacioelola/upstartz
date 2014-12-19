@@ -49,6 +49,8 @@ public class AcceptStartupCompany extends AbstractResource {
                         getheader(request, "source"),
                         getheader(request, "sourceUrl"),
                         getheader(request, "name"),
+                        getheader(request, "companyUrl"),
+                        getheader(request, "location"),
                         getheader(request, "logoUrl"),
                         getheader(request, "description")));
     }
