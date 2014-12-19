@@ -8,7 +8,6 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
@@ -29,11 +28,7 @@ public class VoteForStartupPage extends WebPage {
             throw new IllegalStateException("No startups exist in the database.");
         }
 
-        add(new BookmarkablePageLink<LeaderboardPage>("leaderboardUpvoteLink", LeaderboardPage.class));
-        final PageParameters leaderboardDownvoteLinkParameters = new PageParameters();
-        leaderboardDownvoteLinkParameters.add("dir", LeaderboardPage.Direction.DOWN);
-        add(new BookmarkablePageLink<LeaderboardPage>("leaderboardDownvoteLink", LeaderboardPage.class, leaderboardDownvoteLinkParameters));
-
+        add(new HeaderPanel("header", null));
         add(new Label("name", company.getName()));
         add(new StaticImage("logoUrl", company.getLogoUrl()));
         add(new Label("description", company.getDescription()));

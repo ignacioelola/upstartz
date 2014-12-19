@@ -18,25 +18,14 @@ public class LeaderboardPage extends WebPage {
     @SpringBean
     private StartupCompanyDAO dao;
 
-    public enum Direction {
-        UP,
-        DOWN
-    }
-
     public LeaderboardPage(final PageParameters pp) {
         super(pp);
-        final Direction direction = parseDirection(pp.get("dir"));
+        final Direction selectedDirection = parseDirection(pp.get("dir"));
 
-        add(new Label("title", getTitle(direction)));
-
-        add(new BookmarkablePageLink<LeaderboardPage>("leaderboardUpvoteLink", LeaderboardPage.class));
-        final PageParameters leaderboardDownvoteLinkParameters = new PageParameters();
-        leaderboardDownvoteLinkParameters.add("dir", Direction.DOWN);
-        add(new BookmarkablePageLink<LeaderboardPage>("leaderboardDownvoteLink", LeaderboardPage.class, leaderboardDownvoteLinkParameters));
-
+        add(new HeaderPanel("header", selectedDirection));
         add(new BookmarkablePageLink<VoteForStartupPage>("voteLink", VoteForStartupPage.class));
 
-        final List<StartupCompany> scList = list(direction, 10);
+        final List<StartupCompany> scList = list(selectedDirection, 10);
         add(new ListView<StartupCompany>("list", scList) {
             @Override
             protected void populateItem(final ListItem<StartupCompany> item) {
@@ -48,15 +37,6 @@ public class LeaderboardPage extends WebPage {
                 item.add(new Label("description", sc.getDescription()));
             }
         });
-    }
-
-    private String getTitle(final Direction direction) {
-        switch (direction) {
-            case DOWN:
-                return "Ice Cold Upstartz";
-            default:
-                return "Upstartz on Fire!";
-        }
     }
 
     private Direction parseDirection(final StringValue arg) {
