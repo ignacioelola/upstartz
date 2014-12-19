@@ -59,6 +59,12 @@ a {
 	display: inline-block;
 	margin-left: 40px;
 }
+.header__nav a:hover {
+  text-decoration: underline;
+}
+.header__nav .selected {
+  font-weight: 700;
+}
 
 .footer {
   margin-top: 100px;
