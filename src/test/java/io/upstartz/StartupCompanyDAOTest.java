@@ -19,7 +19,14 @@ public class StartupCompanyDAOTest extends AbstractTransactionalJUnit4SpringCont
 
     @Test
     public void createAndLoad() throws Exception {
-        final StartupCompany sc = new StartupCompany("betalist", "http://betalist.com/x", "Company 1", "logoUrl", "desc");
+        final StartupCompany sc = new StartupCompany(
+                "betalist",
+                "http://betalist.com/x",
+                "Company 1",
+                "companyUrl",
+                "location",
+                "logoUrl",
+                "desc");
         dao.save(sc);
         Assert.assertNotNull(sc.getId());
         Assert.assertEquals(0, sc.getUpvotes());
