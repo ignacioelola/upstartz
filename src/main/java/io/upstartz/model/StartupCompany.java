@@ -95,6 +95,22 @@ public class StartupCompany implements Serializable {
         this.name = name;
     }
 
+    public String getCompanyUrl() {
+        return companyUrl;
+    }
+
+    public void setCompanyUrl(String companyUrl) {
+        this.companyUrl = companyUrl;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     public String getLogoUrl() {
         return logoUrl;
     }
