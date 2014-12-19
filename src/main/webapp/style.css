@@ -206,8 +206,16 @@ a {
   }
   .header {
     line-height: 50px;
+    height: 50px;
   }
   .company {
     padding-top: 25px;
+  }
+}
+@media all and (max-width: 460px) {
+  .header__nav a {
+    width: 0;
+    text-indent: -666px;
+    overflow: hidden;
   }
 }
