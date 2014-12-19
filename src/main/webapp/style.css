@@ -6,6 +6,7 @@ html, body {
 body {
   font-family: 'Raleway';
   min-height: 100%;
+  counter-reset: companycounter;
 }
 
 .col {
@@ -96,12 +97,15 @@ body {
 
 .companylist {
   list-style: none;
+  padding-left: 82px;
 }
 .companylist li {
-  overflow: hidden;
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
 }
 .companylist li:before {
-  content: '1';
+
   float: left;
   overflow: hidden;
   width: 70px;
@@ -111,9 +115,26 @@ body {
 	font-size: 40px;
 	line-height: 70px;
 	text-align: center;
+	margin-left: -82px;
+
+	content: counter(companycounter);
+	counter-increment: companycounter;
 }
 .companylist__img {
-  width:;
+  width: 20%;
+  margin: 0 5%;
+  float: left;
+  box-shadow: 2px 2px 5px #ccc;
+}
+.companylist__details {
+  width: 70%;
+  float: left;
+}
+.companylist__details__votes {
+
+}
+.companylist__details__votes {
+
 }
 
 @media all and (max-width: 780px) {

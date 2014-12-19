@@ -1,5 +1,6 @@
 package io.upstartz.page;
 
+import io.upstartz.component.StaticImage;
 import io.upstartz.dao.StartupCompanyDAO;
 import io.upstartz.model.StartupCompany;
 import org.apache.wicket.markup.html.WebPage;
@@ -43,6 +44,8 @@ public class LeaderboardPage extends WebPage {
                 item.add(new Label("upvotes", sc.getUpvotes()));
                 item.add(new Label("downvotes", sc.getDownvotes()));
                 item.add(new Label("name", sc.getName()));
+                item.add(new StaticImage("logo", sc.getLogoUrl()));
+                item.add(new Label("description", sc.getDescription()));
             }
         });
     }
